@@ -73,6 +73,9 @@
           "configurations": {
             "production": {
               "browserTarget": "ATLFrontEnd:build:production"
+            },            
+            "dev": {
+              "browserTarget": "ATLFrontEnd:build:dev"
             }
           }
         },
