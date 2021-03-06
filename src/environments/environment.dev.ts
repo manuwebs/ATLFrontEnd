@@ -2,5 +2,5 @@ import { IEnvironment } from "./IEnviroment";
 
 export const environment: IEnvironment = {
   production: false,
-  apiUrl: ''
+  apiUrl: 'http://localhost:3000'
 };
