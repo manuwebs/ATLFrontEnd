@@ -17,7 +17,11 @@ table {
   }
 
   tbody {
+    display: block;
+    height: 80vh;
+    overflow: auto;
     cursor: pointer;
+
     tr {
       color: $secondary;
       transition: all ease-in-out 0.5s;
@@ -45,6 +49,13 @@ td {
   border-color: $dark-accent;
   border-collapse: collapse;
   border-style: solid;
+}
+
+thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .toolbar {
