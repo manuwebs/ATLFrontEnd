@@ -4,11 +4,13 @@
         <div class="input-group">
             <label for="firstName">First Name:</label>
             <input type="text" name="firstName" id="firstName" formControlName="firstName">
+            <ng-container *ngTemplateOutlet="inputError; context: {$implicit: form.controls.firstName}"></ng-container>
         </div>
 
         <div class="input-group">
             <label for="lastName">Last Name:</label>
             <input type="text" name="lastName" id="lastName" formControlName="lastName">
+            <ng-container *ngTemplateOutlet="inputError; context: {$implicit: form.controls.lastName}"></ng-container>
         </div>
 
         <div formArrayName="phones" class="phonesContainer">
@@ -17,10 +19,31 @@
                 <input type="tel" [name]="i" [id]="i" [formControlName]="i">
                 <app-button *ngIf="phones.length > 1" type="button" (click)="removePhone(i)" size="sm">Remove phone
                 </app-button>
+
+                <ng-container *ngTemplateOutlet="inputError; context: {$implicit: phones.controls[i]}">
+                </ng-container>
             </div>
             <app-button type="button" (click)="addPhone()">Add another phone</app-button>
         </div>
 
         <app-button type="submit" size="lg" class="submitBtn">Save</app-button>
+        <app-button type="button" size="lg" class="cancelBtn" (click)="cancel()">Cancel</app-button>
     </form>
 </div>
+
+<ng-template #inputError let-input>
+    <div *ngIf="(input.invalid && (input.dirty || input.touched)) || ((!input.dirty || !input.touched) && submitted)"
+        class="error">
+
+        <div *ngIf="input.errors.required">
+            This field is required.
+        </div>
+        <div *ngIf="input.errors.minlength">
+            This field must be at least {{input.errors.minlength.requiredLength | json}} characters long.
+        </div>
+        <div *ngIf="input.errors.pattern">
+            One of the characters is invalid
+        </div>
+
+    </div>
+</ng-template>

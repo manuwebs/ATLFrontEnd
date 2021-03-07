@@ -13,6 +13,8 @@ export class ContactFormComponent implements OnInit {
 
   id: number;
   form: FormGroup;
+  submitted = false;
+
   constructor(public router: Router, private route: ActivatedRoute, private fb: FormBuilder, private contactService: ContactService) {
     this.route.params.subscribe(p => this.id = p.id);
   }
@@ -54,6 +56,7 @@ export class ContactFormComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.submitted = true;
     if (this.form.valid) {
       const contact: IContact = { ...this.form.getRawValue() };
       if (contact.id) {
@@ -64,6 +67,10 @@ export class ContactFormComponent implements OnInit {
     } else {
       alert('Form is invalid');
     }
+  }
+
+  cancel(): void {
+    this.router.navigateByUrl('list');
   }
 
 }
