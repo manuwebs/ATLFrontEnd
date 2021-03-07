@@ -22,8 +22,8 @@ export class ContactFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       id: [this.id],
-      firstName: ['', [Validators.required, Validators.pattern('^[a-zA-z]*$')]],
-      lastName: ['', [Validators.required, Validators.pattern('^[a-zA-z]*$')]],
+      firstName: ['', [Validators.required, Validators.pattern('^[a-z A-z]*$')]],
+      lastName: ['', [Validators.required, Validators.pattern('^[a-z A-z]*$')]],
       phones: this.fb.array([]),
     });
 
@@ -48,7 +48,12 @@ export class ContactFormComponent implements OnInit {
   }
 
   addPhone(value = ''): void {
-    this.phones.push(this.fb.control(value, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(10)]));
+    this.phones.push(this.fb.control(value,
+      [
+        Validators.required,
+        Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$'),
+        Validators.minLength(10)
+      ]));
   }
 
   removePhone(index: number): void {

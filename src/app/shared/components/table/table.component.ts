@@ -25,6 +25,13 @@ export class TableComponent {
     return this.template.map(t => t.property);
   }
 
+  getProperty(property: any): any {
+    if (property instanceof Array) {
+      property = property.map(p => p = `${p} <br>`);
+    }
+    return property;
+  }
+
   selectItem(item: any): void {
     this.currentItem = this.currentItem === item ? undefined : item;
     this.selectedItem.emit(this.currentItem);

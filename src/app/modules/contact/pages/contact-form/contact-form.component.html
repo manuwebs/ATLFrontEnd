@@ -4,12 +4,14 @@
         <div class="input-group">
             <label for="firstName">First Name:</label>
             <input type="text" name="firstName" id="firstName" formControlName="firstName">
+            <span class="placeholder">John</span>
             <ng-container *ngTemplateOutlet="inputError; context: {$implicit: form.controls.firstName}"></ng-container>
         </div>
 
         <div class="input-group">
             <label for="lastName">Last Name:</label>
             <input type="text" name="lastName" id="lastName" formControlName="lastName">
+            <span class="placeholder">Doe</span>
             <ng-container *ngTemplateOutlet="inputError; context: {$implicit: form.controls.lastName}"></ng-container>
         </div>
 
@@ -19,6 +21,7 @@
                 <input type="tel" [name]="i" [id]="i" [formControlName]="i">
                 <app-button *ngIf="phones.length > 1" type="button" (click)="removePhone(i)" size="sm">Remove phone
                 </app-button>
+                <span class="placeholder">(123)-456-7890</span>
 
                 <ng-container *ngTemplateOutlet="inputError; context: {$implicit: phones.controls[i]}">
                 </ng-container>

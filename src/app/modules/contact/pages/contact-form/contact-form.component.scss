@@ -54,6 +54,17 @@
     }
   }
 
+  .placeholder {
+    font-style: italic;
+    font-size: 0.8rem;
+    color: $dark-accent;
+    flex: 100%;
+
+    &::before {
+      content: "Ex: ";
+    }
+  }
+
   .error {
     font-style: italic;
     color: $error;

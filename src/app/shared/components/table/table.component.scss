@@ -49,10 +49,11 @@ td {
 
 .toolbar {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  width: 90%;
+  margin: 0.2rem auto;
 
   app-button {
-    padding: 25px;
+    padding: 0rem 1rem;
   }
 }
