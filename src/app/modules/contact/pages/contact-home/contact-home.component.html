@@ -1,2 +1,3 @@
-<app-table [template]="template" [items]="contacts" (selectedItem)="selectedItem = $event">
+<app-table [template]="template" [items]="contacts" (selectedItem)="selectedItem = $event" (add)="addContact()"
+    (edit)="editContact()" (delete)="deleteContact()">
 </app-table>

@@ -1,0 +1,26 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h1>{{form.controls.id.value ? 'Edit' : 'Add'}} Contact</h1>
+        <div class="input-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName" formControlName="firstName">
+        </div>
+
+        <div class="input-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" id="lastName" formControlName="lastName">
+        </div>
+
+        <div formArrayName="phones" class="phonesContainer">
+            <h2>Phones</h2>
+            <div *ngFor="let phone of phones.controls; let i=index" class="input-group">
+                <input type="tel" [name]="i" [id]="i" [formControlName]="i">
+                <app-button *ngIf="phones.length > 1" type="button" (click)="removePhone(i)" size="sm">Remove phone
+                </app-button>
+            </div>
+            <app-button type="button" (click)="addPhone()">Add another phone</app-button>
+        </div>
+
+        <app-button type="submit" size="lg" class="submitBtn">Save</app-button>
+    </form>
+</div>
