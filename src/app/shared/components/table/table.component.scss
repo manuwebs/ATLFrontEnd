@@ -1,0 +1,58 @@
+@import "../../styles/variables";
+
+table {
+  width: 90%;
+  margin: auto;
+  background: $bright;
+
+  th,
+  td {
+    text-align: center;
+    padding: 15px;
+  }
+
+  thead {
+    background-color: $primary;
+    color: $bright;
+  }
+
+  tbody {
+    cursor: pointer;
+    tr {
+      color: $secondary;
+      transition: all ease-in-out 0.5s;
+
+      &:hover {
+        background-color: $dark-accent;
+        color: $bright;
+      }
+
+      &.selected {
+        background-color: $secondary;
+        color: $bright;
+      }
+    }
+  }
+}
+
+table,
+th,
+td {
+  border-top: 1px;
+  border-bottom: 1px;
+  border-left: 0px;
+  border-right: 0px;
+  border-color: $dark-accent;
+  border-collapse: collapse;
+  border-style: solid;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  app-button {
+    padding: 25px;
+  }
+}

@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import "app/shared/styles/variables.scss";
+* {
+  font-family: "Segoe UI", Roboto;
+}
+
+body {
+  background: $light-accent;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: $dark-accent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $secondary;
+  border-radius: 6px;
+  border: 3px solid $dark-accent;
+}

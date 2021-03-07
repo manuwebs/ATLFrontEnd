@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+button {
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 2rem;
+  margin: 0.5rem 0rem;
+  background: $secondary;
+  color: $bright;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 250ms ease-in-out;
+
+  &:hover {
+    background: $primary;
+  }
+
+  &.lg {    
+    padding: 0.5rem 3rem;
+    font-size: 1.3rem;
+  }
+
+  &.sm {
+    font-size: 0.7rem;
+    padding: 0.5rem 1rem;
+  }
+}

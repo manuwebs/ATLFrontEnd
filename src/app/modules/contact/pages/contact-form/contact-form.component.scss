@@ -1,0 +1,55 @@
+@import "../../../../shared/styles/variables.scss";
+
+.container {
+  width: 80%;
+  margin: auto;
+  border-radius: 2rem;
+  padding: 2rem;
+  background: $bright;
+  color: $dark;
+  overflow: auto;
+
+  h1 {
+    color: $primary;
+  }
+
+  h2 {
+    color: $secondary;
+    margin: 0 0 2rem 0;
+  }
+
+  input {
+    width: 100%;
+    padding: 7px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    border: 1px solid $dark-accent;
+  }
+
+  .input-group {
+    margin: 1.5rem 0;
+  }
+
+  .phonesContainer {
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid $dark-accent;
+    border-radius: 1rem;
+
+    .input-group {
+      display: flex;
+      margin: 0 0 1rem 0;
+
+      app-button {
+        display: flex;
+        justify-content: center;
+        width: 20%;
+      }
+    }
+  }
+
+  .submitBtn {
+    float: right;
+  }
+}
