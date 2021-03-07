@@ -1,9 +1,9 @@
-import { EnviromentService } from './enviroment.service';
+import { EnvironmentService } from './environment.service';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { filter, shareReplay, tap } from 'rxjs/operators';
 
-export class HttpService<T> extends EnviromentService {
+export class HttpService<T> extends EnvironmentService {
   private items$: BehaviorSubject<T[]> = new BehaviorSubject<T[]>(null);
   private activeSubscription: Subscription;
   private readonly url: string;
